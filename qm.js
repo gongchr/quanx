@@ -8,7 +8,7 @@ if (url.includes("/v2/publication.member.info")) {
     body = body.replace(/"vipExpiredTime"\s*:\s*\d+/g, '"vipExpiredTime": 4102545599000');
     body = body.replace(/"isVip"\s*:\s*(true|false)/g, '"isVip": true');
 
-    body = body.replace(/"type"\s*:\s*"stranger"/g, '"type": "normal"');
+    body = body.replace(/"type"\s*:\s*"stranger"/g, '"type": "member"');
 
     let jsonObj = JSON.parse(body);
 
@@ -17,6 +17,9 @@ if (url.includes("/v2/publication.member.info")) {
     }
     if (!jsonObj.profile.role.hasOwnProperty('expiredTimestamp')) {
       jsonObj.profile.role.expiredTimestamp = 4102545599000;
+    }
+    if (!jsonObj.profile.role.hasOwnProperty('isExpired')) {
+      jsonObj.profile.role.expiredTimestamp = false;
     }
     if (!jsonObj.profile.hasOwnProperty('vipExpiredTime')) {
       jsonObj.profile.vipExpiredTime = 4102545599000;
