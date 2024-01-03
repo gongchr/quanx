@@ -19,7 +19,7 @@ if (url.includes("/v2/publication.member.info")) {
       jsonObj.profile.role.expiredTimestamp = 4102545599000;
     }
     if (!jsonObj.profile.role.hasOwnProperty('isExpired')) {
-      jsonObj.profile.role.expiredTimestamp = false;
+      jsonObj.profile.role.isExpired = false;
     }
     if (!jsonObj.profile.hasOwnProperty('vipExpiredTime')) {
       jsonObj.profile.vipExpiredTime = 4102545599000;
